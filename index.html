@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>树状图</title>
+
+   <style type="text/css">
+	   *{
+	   	margin:0;
+	   	padding:0;
+	   }
+     #treeBox,#tree2Box{
+      width:160px;
+   	  height:40px;
+   	  line-height: 40px;
+   	  padding-left:3px;
+   	  border:1px solid #ccc;
+   	  margin:40px;
+   	  float: left;
+    }
+
+
+
+
+
+/*********************************样式    start   *************************/
+    .treeCodeBox{
+    	left:0;
+    	z-index:666;
+    	position: absolute;
+    	display: none;
+    	background:#565646;
+    }
+    .treeCodeBox ul.treeCode{
+      list-style: none;
+      cursor: pointer;
+     }
+    .treeCodeBox li{
+    	min-height:28px;
+    	line-height: 28px;
+        box-sizing:border-box;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        padding-left:20px;
+        position: relative;
+         list-style: none;
+    }
+    .treeCodeBox li strong{
+    	position: absolute;
+    	left: 0;
+    	top:0;
+    	width:20px;
+    	text-align: center;
+    }
+    .treeCodeBox li strong img{
+     width:20px;
+     height: 20px;
+     vertical-align: text-top;
+    }
+
+    .treeSearchBox{
+    	line-height: 20px;
+    	color: #888;
+    	height: 20px;
+    	overflow: hidden;
+    	position: relative;
+    	margin:5px 0 5px 0;
+    }
+    .treeSearchBox >div,.treeSearchBox >input{
+    	font-size:14px;
+    	position: absolute;
+    	left:5px;
+    	padding-left:5px;
+    	top:0;
+    	height: 100%;
+    	width:80%;
+    	border: 1px solid #ccc;
+    	background:transparent;
+    	box-sizing:border-box;
+    	border-radius: 3px;
+    	outline: none;
+    }
+    .treeSearchBox >div{
+    	border: none;
+   /* 	background:yellow;*/
+    }
+    .treeSearchBox i{
+    	position: absolute;
+    	right:0;
+        display: block;
+        cursor: pointer;
+    }
+    .treeSearchBox i img{
+    	border: none;
+    	width:20px;
+    	height:20px;
+    }
+    /*********************************样式    end   *************************/
+   </style>
+</head>
+<body>
+	<div id="treeBox" ></div>
+	<div id="tree2Box" ></div>
+</body>
+<script src="js/lib/jquery-1.8.3.min.js"></script>
+	<script src="js/lib/plugins/js_JqTree.js"></script>
+	<script>
+		var data=[{
+        id:'000018',
+        name:'第二级别',
+        pid:'0007'
+		},{
+        id:'0007',
+        name:'第一级别',
+        pid:'hhhhh'
+		},{
+        id:'0000',
+        name:'第一级别',
+        pid:''
+		},{
+        id:'00001',
+        name:'第二级别阿萨德哈市凉快点哈上路大叔大婶打了卡三打哈',
+        pid:'0000'
+		},{
+        id:'00002',
+        name:'第二级别',
+        pid:'0000'
+		},{
+        id:'00003',
+        name:'第二级别',
+        pid:'0000'
+		},{
+        id:'000001',
+        name:'第三级别',
+        pid:'00001'
+		},{
+        id:'000005',
+        name:'第三级别',
+        pid:'00001'
+		},
+		{
+        id:'000006',
+        name:'第三级别',
+        pid:'00001'
+		},{
+        id:'000002',
+        name:'第三级别',
+        pid:'00001'
+		},{
+        id:'000003',
+        name:'第三级别',
+        pid:'00002'
+		},{
+        id:'00009',
+        name:'第二级别',
+        pid:'0000'
+		}]
+
+// var data=[{
+//         id:'000010',
+//         name:'阿萨das德',
+//         pid:''
+//         },{
+//         id:'00009',
+//         name:'阿萨德',
+//         pid:''
+// 		},{
+//         id:'1',
+//         name:'啊是的呢',
+//         pid:'00009'
+// 		},{
+//         id:'2',
+//         name:'爱仕达多所',
+//         pid:'00009'
+// 		},{
+//         id:'3',
+//         name:'阿萨阿萨德群',
+//         pid:'2'
+// 		}]
+
+		var tree=new jqTree({
+			treeBox:'#treeBox',
+			data:data,
+            searchBtn:{
+            	show:false,
+            	placeHolder:'输入查询'
+            },
+		},function(_this){
+
+			console.log($(_this).attr("data-value"))
+		});
+
+
+
+var data2=[{
+        id:'0000',
+        name:'第一级别',
+        pid:''
+		},{
+        id:'00001',
+        name:'第二级别阿萨德哈市凉快点哈上路大叔大婶打了卡三打哈',
+        pid:'0000'
+		},{
+        id:'00002',
+        name:'第二级别',
+        pid:'0000'
+		},{
+        id:'00003',
+        name:'第二级别',
+        pid:'0000'
+		},{
+        id:'000001',
+        name:'第三级别',
+        pid:'00001'
+		},{
+        id:'000005',
+        name:'第三级别',
+        pid:'00001'
+		}]
+		var tree=new jqTree({
+			treeBox:'#tree2Box',
+			data:data2,
+            searchBtn:{
+            	show:true,
+            	placeHolder:'输入查询'
+            },
+          
+		});
+
+	</script>
+</html>
